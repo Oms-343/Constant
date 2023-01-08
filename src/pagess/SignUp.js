@@ -1,7 +1,13 @@
 import React from "react";
 import { useState } from "react";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import GoogleAuth from "../componentss/GoogleAuth";
+import GuestAuth from "../componentss/GuestAuth";
+import TwitterAuth from "../componentss/TwitterAuth";
 
 const Signupform = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -19,7 +25,7 @@ const Signupform = () => {
   return (
     <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-lg">
-        <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
+        <h1 class="text-center text-2xl font-bold  text-indigo-600 sm:text-3xl">
           Get started today
         </h1>
 
@@ -47,20 +53,7 @@ const Signupform = () => {
               />
 
               <span class="absolute inset-y-0 right-4 inline-flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                  />
-                </svg>
+                <AiOutlineEye class=" text-lg" />
               </span>
             </div>
           </div>
@@ -72,7 +65,7 @@ const Signupform = () => {
 
             <div class="relative mt-1">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 id="password"
                 value={password}
                 onChange={onChange}
@@ -81,48 +74,44 @@ const Signupform = () => {
               />
 
               <span class="absolute inset-y-0 right-4 inline-flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                {showPassword ? (
+                  <AiOutlineEye
+                    class="cursor-pointer text-lg"
+                    onClick={() => setShowPassword((prevState) => !prevState)}
                   />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                ) : (
+                  <AiOutlineEyeInvisible
+                    class="cursor-pointer text-lg "
+                    onClick={() => setShowPassword((prevState) => !prevState)}
                   />
-                </svg>
+                )}
               </span>
             </div>
           </div>
 
           <button
             type="submit"
-            class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+            class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white focus:ring-2  hover:bg-indigo-500 transition duration-200 ease-in-out"
           >
             Sign up
           </button>
 
-          <p class="text-center text-sm text-gray-500">
-            Have an account?
-            <a class="underline ml-1" href="$">
-              Sign in
-            </a>
-          </p>
           <div>
-            <h4>{email}</h4>
-            <h4>{password}</h4>
-            <h4>hello</h4>
-            <h4>hello</h4>
+            <p class="text-center text-sm text-gray-500">
+              Have an account?
+              <Link to="/sign-in" class="underline ml-1">
+                Sign in
+              </Link>
+            </p>
+            <p class="text-center text-sm text-gray-500 mt-4">
+              or you can sign in with
+            </p>
+          </div>
+
+          <div className="flex mt-4 gap-x-6 justify-center">
+            <GoogleAuth />
+            <GuestAuth />
+            <TwitterAuth />
           </div>
         </form>
       </div>

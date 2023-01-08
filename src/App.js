@@ -11,9 +11,9 @@ function App() {
       <Routes>
         <Route path="/" exact element={<SignUp />} />
         <Route path="home" element={<Homepage />} />
-        <Route path="signin" element={<SignIn />} />
+        <Route path="sign-in" element={<SignIn />} />
         <Route path="profile" element={<Profile />} />
-        <Route path="forgetpassword" element={<ForgetPassword />} />
+        <Route path="forgotpassword" element={<ForgetPassword />} />
       </Routes>
     </Router>
   );
