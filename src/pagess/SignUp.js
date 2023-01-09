@@ -1,12 +1,21 @@
 import React from "react";
 import { useState } from "react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleAuth from "../componentss/GoogleAuth";
 import GuestAuth from "../componentss/GuestAuth";
 import TwitterAuth from "../componentss/TwitterAuth";
 
+import { toast } from "react-toastify";
+
+//
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { database } from "../firebaseInit";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+
 const Signupform = () => {
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -15,11 +24,40 @@ const Signupform = () => {
 
   const { email, password } = formData;
 
-  function onChange(e) {
+  const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
     }));
+  };
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      // console.log(user);
+
+      // since we dont want to save the password in database
+      const formDataCopy = { ...formData };
+      delete formDataCopy.password;
+      formDataCopy.timestamp = serverTimestamp();
+
+      // saving users in databse
+      await setDoc(doc(database, "users", user.uid), formDataCopy);
+
+      //
+      navigate("/home");
+    } catch (e) {
+      email === "" && password === ""
+        ? toast.error("please fill email and password")
+        : toast.error("someting went wrong please try again ");
+    }
   }
 
   return (
@@ -34,7 +72,10 @@ const Signupform = () => {
           sunt dolores deleniti inventore quaerat mollitia?
         </p>
 
-        <form action="" class="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl">
+        <form
+          onSubmit={onSubmit}
+          class="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl"
+        >
           <p class="text-lg font-medium">Sign up to constant</p>
 
           <div>
@@ -91,7 +132,7 @@ const Signupform = () => {
 
           <button
             type="submit"
-            class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white focus:ring-2  hover:bg-indigo-500 transition duration-200 ease-in-out"
+            class="block w-full rounded-lg bg-indigo-500 px-5 py-3 text-sm font-medium text-white focus:ring-2  hover:bg-indigo-600 transition duration-200 ease-linear"
           >
             Sign up
           </button>
