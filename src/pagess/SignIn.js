@@ -1,12 +1,18 @@
 import React from "react";
 import { useState } from "react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleAuth from "../componentss/GoogleAuth";
 import GuestAuth from "../componentss/GuestAuth";
 import TwitterAuth from "../componentss/TwitterAuth";
+import { toast } from "react-toastify";
+
+//
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const SignInform = () => {
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -22,6 +28,23 @@ const SignInform = () => {
     }));
   }
 
+  async function onSubmit(e) {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      if (userCredential.user) {
+        navigate("/home");
+      }
+    } catch (e) {
+      toast.error("something went wrong");
+    }
+  }
+
   return (
     <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-lg">
@@ -34,7 +57,10 @@ const SignInform = () => {
           sunt dolores deleniti inventore quaerat mollitia?
         </p>
 
-        <form action="" class="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl">
+        <form
+          onSubmit={onSubmit}
+          class="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl"
+        >
           <p class="text-lg font-medium">Sign In to constant</p>
 
           <div>
