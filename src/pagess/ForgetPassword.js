@@ -2,15 +2,30 @@ import React from "react";
 import { useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import GoogleAuth from "../componentss/GoogleAuth";
 import GuestAuth from "../componentss/GuestAuth";
 import TwitterAuth from "../componentss/TwitterAuth";
+
+//
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
 
   function onChange(e) {
     setEmail(e.target.value);
+  }
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
+      await sendPasswordResetEmail(auth, email);
+      toast.success("reset password email sent");
+    } catch (error) {
+      toast.error("could not complete reset password ");
+    }
   }
 
   return (
@@ -25,7 +40,10 @@ const ForgotPassword = () => {
           sunt dolores deleniti inventore quaerat mollitia?
         </p>
 
-        <form action="" class=" mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl">
+        <form
+          onSubmit={onSubmit}
+          class=" mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl"
+        >
           <p class="flex justify-center  text-lg font-medium">
             <span>Enter your email</span>
           </p>
