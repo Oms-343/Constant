@@ -33,6 +33,7 @@ const Signupform = () => {
 
   async function onSubmit(e) {
     e.preventDefault();
+
     try {
       const auth = getAuth();
       const userCredential = await createUserWithEmailAndPassword(
@@ -53,10 +54,17 @@ const Signupform = () => {
 
       //
       navigate("/home");
-    } catch (e) {
-      email === "" && password === ""
-        ? toast.error("please fill email and password")
-        : toast.error("someting went wrong please try again ");
+    } catch (error) {
+      // email === "" && password === ""
+      //   ? toast.error("please fill email and password")
+      //   : toast.error("someting went wrong please try again ");
+      // console.log(error);
+
+      if (email === "" && password === "") {
+        toast.error("please fill email and password");
+      } else {
+        toast.error(error.message);
+      }
     }
   }
 
