@@ -61,7 +61,10 @@ const Sidebar = () => {
         </ul>
       </div>
 
-      <div onClick={() => setOpen(!open)} className="h-screen flex-1 p-7">
+      <div
+        onClick={() => open && setOpen(false)}
+        className="h-screen flex-1 p-7"
+      >
         <h1 className="text-2xl font-semibold ">Home Page</h1>
       </div>
     </div>
