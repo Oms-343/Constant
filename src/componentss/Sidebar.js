@@ -17,15 +17,15 @@ const Sidebar = () => {
     <>
       <div className="flex ">
         {/* sidebar div*/}
-        <div
+        <aside
           className={` ${
             open ? "w-72" : "w-20 "
           } bg-indigo-600 h-screen p-5  pt-8 relative    duration-300 `}
         >
-          <div className="flex items-center">
+          <div className="  flex items-center">
             <button
               onClick={() => setOpen(!open)}
-              className={`absolute  flex  items-center justify-center   cursor-pointer  -right-6 top-3  w-12 h-12  bg-indigo-600 hover:bg-indigo-700
+              className={`z-10  absolute  flex  items-center justify-center   cursor-pointer  -right-6 top-3  w-12 h-12  bg-indigo-600 hover:bg-indigo-700
                         border-2 rounded-full hover:text-white    `}
             >
               <RxHamburgerMenu className=" flex text-2xl " />
@@ -63,14 +63,24 @@ const Sidebar = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </aside>
 
-        {/* navbar div*/}
-        <div
-          onClick={() => open && setOpen(false)}
-          className=" flex justify-center items-center bg-black h-20 w-full  p-7"
-        >
-          <h1 className="  text-2xl font-semibold text-white ">navbar</h1>
+        {/* home*/}
+        <div className="  flex flex-col    bg-black  w-full h-screen   pt-0">
+          <header className=" flex justify-end   bg-red-500 text-2xl font-semibold text-white h-16">
+            <div className="flex items-center justify-center gap-14 mr-6">
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+            </div>
+          </header>
+          <main
+            onClick={() => open && setOpen(false)}
+            className="h-screen bg-yellow-300 text-2xl font-semibold text-white "
+          >
+            homepage
+          </main>
         </div>
       </div>
 
