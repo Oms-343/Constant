@@ -13,8 +13,8 @@ const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const Menus = [
     { title: "Quick Guide", src: <MdOutlineLiveHelp /> },
-    { title: "Profile info", src: <FiUser /> },
-    { title: "Habit Analytics", src: <AiOutlineBarChart /> },
+    { title: "Profile ", src: <FiUser /> },
+    { title: " Analytics", src: <AiOutlineBarChart /> },
     { title: "Settings", src: <MdSettingsSuggest /> },
   ];
 
@@ -61,10 +61,12 @@ const Sidebar = () => {
                   open ? "rounded-sm" : "rounded-md justify-center "
                 }  bg-black      p-3 cursor-pointer hover:bg-white text-gray-300 text-sm items-center  gap-x-4 mb-8 mt-3  border-l-4 border-red-500`}
               >
-                <span className=" flex   text-2xl">{Menu.src}</span>
+                <span className="    text-2xl">{Menu.src}</span>
 
                 <span
-                  className={`${!open && "hidden"} origin-left  duration-300`}
+                  className={`${
+                    !open && "hidden"
+                  } whitespace-nowrap  duration-300`}
                 >
                   {Menu.title}
                 </span>
