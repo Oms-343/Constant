@@ -1,7 +1,7 @@
 import React from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
 
-import { useLocation, Link, Outlet } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const MainContent = () => {
   const location = useLocation();

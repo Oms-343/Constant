@@ -8,6 +8,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Modal from "./componentss/Modal";
+import HabitDetails from "./componentss/HabitDetails";
 
 function App() {
   const location = useLocation();
@@ -26,7 +27,9 @@ function App() {
 
       {background && (
         <Routes>
-          <Route path="modal" element={<Modal />} />
+          <Route path="modal" element={<Modal />}>
+            <Route path="habit-details" element={<HabitDetails />} />
+          </Route>
         </Routes>
       )}
 
