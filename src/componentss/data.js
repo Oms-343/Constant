@@ -26,14 +26,11 @@ export const habits = [
     type: "Health and Fitness",
     options: [
       "Medication",
-      "coffee Consumption",
       "Personal Hygiene",
       "Diet",
       "Drink Water",
       "Running",
       "Smoking",
-      "Alcohol",
-      "sport",
     ],
   },
   {

@@ -4,7 +4,7 @@ import Card from "./card";
 const ModelContent = ({ selectedType, onChange, data }) => {
   return (
     <>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center mb-8">
         <select
           class="block px-3 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm w-52 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
           name="habits"
@@ -25,7 +25,7 @@ const ModelContent = ({ selectedType, onChange, data }) => {
       </div>
 
       {/*  different habits section*/}
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-2">
+      <div className="  grid grid-cols-2 gap-4 sm:grid-cols-2">
         <Card data={data} />
       </div>
 
