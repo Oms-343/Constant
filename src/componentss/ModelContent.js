@@ -25,13 +25,13 @@ const ModelContent = ({ selectedType, onChange, data }) => {
       </div>
 
       {/*  different habits section*/}
-      <div className="  grid grid-cols-2 gap-4 sm:grid-cols-2">
+      <div className=" h-40  grid grid-cols-2 gap-4 sm:grid-cols-2">
         <Card data={data} />
       </div>
 
       {/*body*/}
-      <div className="relative p-6 flex-auto">
-        <p className="my-4 text-slate-500 text-lg leading-relaxed">
+      <div className=" mt-8 relative p-6 flex-auto">
+        <p className="mt-4 text-slate-500 text-lg leading-relaxed">
           I always felt like I could do anything. That’s the main thing people
           are controlled by! Thoughts- their perception of themselves! They're
           slowed down by their perception of themselves. If you're taught you

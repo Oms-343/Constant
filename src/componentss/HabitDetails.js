@@ -14,11 +14,11 @@ const HabitDetails = () => {
   );
   return (
     <>
-      <div>
+      <div className="">
         <HabitDetailsCard text={text1} />
         <HabitDetailsCard text={text2} />
       </div>
-      <div className="relative p-6 flex-auto">
+      <div className=" mt-8 relative p-6 flex-auto">
         <p className="my-4 text-slate-500 text-lg leading-relaxed">
           I always felt like I could do anything. That’s the main thing people
           are controlled by! Thoughts- their perception of themselves! They're
