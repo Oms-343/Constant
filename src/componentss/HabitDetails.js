@@ -1,17 +1,18 @@
 import React from "react";
 import HabitDetailsCard from "./HabitDetailsCard";
 
+const text1 = (
+  <h1>
+    <b>With a simple yes or No each day - </b> Did i succeed today ?
+  </h1>
+);
+const text2 = (
+  <h1>
+    <b>With a Number - </b> how many times, hours i did or have done today ?
+  </h1>
+);
+
 const HabitDetails = () => {
-  const text1 = (
-    <h1>
-      <b>With a simple yes or No each day - </b> Did i succeed today ?
-    </h1>
-  );
-  const text2 = (
-    <h1>
-      <b>With a Number - </b> how many times, hours i did or have done today ?
-    </h1>
-  );
   return (
     <>
       <div className="">

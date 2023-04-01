@@ -4,6 +4,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { FiEdit } from "react-icons/fi";
 import { ImAlarm } from "react-icons/im";
 import { AiOutlineSetting } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -13,15 +14,19 @@ const Header = () => {
           <IoMdAddCircleOutline className="text-2xl   " />
           <span className="text-sm">Add</span>
         </button>
-        <button className="flex flex-col  items-center text-white ">
-          <AiOutlineSetting className="text-2xl   " />
-          <span className="text-sm">Edit</span>
-        </button>
+        <Link to="/home/edit-habit">
+          <button className="flex flex-col  items-center text-white ">
+            <AiOutlineSetting className="text-2xl   " />
+            <span className="text-sm">Edit</span>
+          </button>
+        </Link>
 
-        <button className="flex flex-col  items-center text-white ">
-          <FiEdit className="text-2xl   " />
-          <span className="text-sm">Note</span>
-        </button>
+        <Link to="/home/note">
+          <button className="flex flex-col  items-center text-white ">
+            <FiEdit className="text-2xl   " />
+            <span className="text-sm">Note</span>
+          </button>
+        </Link>
         <button className="flex flex-col  items-center text-white ">
           <ImAlarm className="text-2xl   " />
           <span className="text-sm">remind</span>

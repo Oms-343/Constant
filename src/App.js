@@ -9,6 +9,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Modal from "./componentss/Modal";
 import HabitDetails from "./componentss/HabitDetails";
+import EditHabit from "./componentss/EditHabit";
+import NoteHere from "./componentss/NoteHere";
 
 function App() {
   const location = useLocation();
@@ -23,6 +25,8 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/forgotpassword" element={<ForgetPassword />} />
+        <Route path="/home/edit-habit" element={<EditHabit />} />
+        <Route path="/home/note" element={NoteHere} />
       </Routes>
 
       {background && (
