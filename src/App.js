@@ -26,7 +26,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/forgotpassword" element={<ForgetPassword />} />
         <Route path="/home/edit-habit" element={<EditHabit />} />
-        <Route path="/home/note" element={NoteHere} />
+        <Route path="/home/note" element={<NoteHere />} />
       </Routes>
 
       {background && (
