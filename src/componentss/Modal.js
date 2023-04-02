@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { habits } from "./data";
 import ModelContent from "./ModelContent";
+import HabitDescribe from "./HabitDescribe";
+import HabitDetails from "./HabitDetails";
 
 export default function Modal() {
   const location = useLocation();
@@ -55,7 +57,7 @@ export default function Modal() {
               </button>
             </div>
 
-            {loc === "/modal" ? (
+            {/** {loc === "/modal" ? (
               <ModelContent
                 selectedType={selectedType}
                 onChange={onChange}
@@ -63,7 +65,19 @@ export default function Modal() {
               />
             ) : (
               <Outlet />
-            )}
+            )} */}
+
+            {(loc === "/modal" && (
+              <ModelContent
+                selectedType={selectedType}
+                onChange={onChange}
+                data={data}
+              />
+            )) ||
+              (loc === "/modal/habit-details" && <HabitDetails />) ||
+              (loc === "/modal/habit-describe" && <HabitDescribe />) ||
+              null}
+
             {/*footer*/}
             <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
               <button

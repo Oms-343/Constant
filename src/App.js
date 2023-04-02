@@ -11,6 +11,8 @@ import Modal from "./componentss/Modal";
 import HabitDetails from "./componentss/HabitDetails";
 import EditHabit from "./componentss/EditHabit";
 import NoteHere from "./componentss/NoteHere";
+import Remind from "./componentss/Remind";
+import HabitDescribe from "./componentss/HabitDescribe";
 
 function App() {
   const location = useLocation();
@@ -27,12 +29,14 @@ function App() {
         <Route path="/forgotpassword" element={<ForgetPassword />} />
         <Route path="/home/edit-habit" element={<EditHabit />} />
         <Route path="/home/note" element={<NoteHere />} />
+        <Route path="/home/remind" element={<Remind />} />
       </Routes>
 
       {background && (
         <Routes>
           <Route path="modal" element={<Modal />}>
             <Route path="habit-details" element={<HabitDetails />} />
+            <Route path="habit-describe" element={<HabitDescribe />} />
           </Route>
         </Routes>
       )}
