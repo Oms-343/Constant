@@ -8,12 +8,12 @@ const HabitDescribe = () => {
           <input
             placeholder="Habit Name"
             type="text"
-            className="relative block rounded-sm mr-8 ml-8 mt-8 border-t-4  border-pink-600 p-4 shadow-lg sm:p-6 lg:p-8"
+            className=" w-3/4  block rounded-sm mr-8 ml-8 mt-8 border-t-4  border-pink-600 p-4 shadow-lg sm:p-6 lg:p-8"
           />
           <input
             placeholder="Habit Description"
             type="text"
-            className="relative block rounded-sm mr-8 ml-8 mt-8 border-t-4  border-pink-600 p-4 shadow-lg sm:p-6 lg:p-8"
+            className=" w-3/4 block rounded-sm mr-8 ml-8 mt-8 border-t-4  border-pink-600 p-4 shadow-lg sm:p-6 lg:p-8"
           />
         </form>
       </div>

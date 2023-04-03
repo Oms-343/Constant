@@ -42,9 +42,12 @@ export default function Modal() {
             {/*header*/}
             <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
               <h3 className=" text-black text-3xl font-semibold">
-                {loc === "/modal"
-                  ? "What would you like to change in your life right now ?"
-                  : "How would you like to track your habit ?"}
+                {(loc === "/modal" &&
+                  "What would you like to change in your  life right now ?") ||
+                  (loc === "/modal/habit-details" &&
+                    "How would you like to track your habit ?") ||
+                  (loc === "/modal/habit-describe" && "Add Your Habit") ||
+                  null}
               </h3>
 
               <button
