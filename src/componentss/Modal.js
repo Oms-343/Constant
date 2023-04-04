@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { habits } from "./data";
 import ModelContent from "./ModelContent";
 import HabitDescribe from "./HabitDescribe";
 import HabitDetails from "./HabitDetails";
+import HabitDescribeFinal from "./HabitDescribeFinal";
 
 export default function Modal() {
   const location = useLocation();
@@ -46,7 +47,9 @@ export default function Modal() {
                   "What would you like to change in your  life right now ?") ||
                   (loc === "/modal/habit-details" &&
                     "How would you like to track your habit ?") ||
-                  (loc === "/modal/habit-describe" && "Add Your Habit") ||
+                  ((loc === "/modal/habit-describe" ||
+                    loc === "/modal/habit-describe-final") &&
+                    "Add Your Habit") ||
                   null}
               </h3>
 
@@ -79,9 +82,10 @@ export default function Modal() {
             )) ||
               (loc === "/modal/habit-details" && <HabitDetails />) ||
               (loc === "/modal/habit-describe" && <HabitDescribe />) ||
-              null}
+              (loc === "/modal/habit-describe-final" && <HabitDescribeFinal />)}
 
             {/*footer*/}
+
             <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
               <button
                 className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
@@ -90,13 +94,19 @@ export default function Modal() {
               >
                 Close
               </button>
-              <button
-                className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                type="button"
-                onClick={() => navigate(-1)}
-              >
-                Save Changes
-              </button>
+              {loc === "/modal/habit-describe" && (
+                <Link
+                  to="/modal/habit-describe-final"
+                  state={{ background: "/home" }}
+                >
+                  <button
+                    className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                  >
+                    Proceed Further
+                  </button>
+                </Link>
+              )}
             </div>
           </div>
         </div>

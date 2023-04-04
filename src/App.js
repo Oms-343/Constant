@@ -13,6 +13,7 @@ import EditHabit from "./componentss/EditHabit";
 import NoteHere from "./componentss/NoteHere";
 import Remind from "./componentss/Remind";
 import HabitDescribe from "./componentss/HabitDescribe";
+import HabitDescribeFinal from "./componentss/HabitDescribeFinal";
 
 function App() {
   const location = useLocation();
@@ -37,6 +38,10 @@ function App() {
           <Route path="modal" element={<Modal />}>
             <Route path="habit-details" element={<HabitDetails />} />
             <Route path="habit-describe" element={<HabitDescribe />} />
+            <Route
+              path="habit-describe-final"
+              element={<HabitDescribeFinal />}
+            />
           </Route>
         </Routes>
       )}

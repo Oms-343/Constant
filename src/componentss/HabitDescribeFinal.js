@@ -1,9 +1,12 @@
 import React from "react";
 
-const HabitDescribe = () => {
+const HabitDescribeFinal = () => {
   return (
     <>
       <div className="">
+        <h1 className="text-lg  mt-4 ml-8">
+          On which days you want to be successful ?
+        </h1>
         <form action="" className="overflow-hidden">
           <input
             placeholder="Habit Name"
@@ -30,4 +33,4 @@ const HabitDescribe = () => {
   );
 };
 
-export default HabitDescribe;
+export default HabitDescribeFinal;
