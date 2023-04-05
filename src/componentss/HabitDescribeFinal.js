@@ -1,4 +1,9 @@
 import React from "react";
+const SuccessDays = [
+  { id: "everyday", title: "Everyday" },
+  { id: "some days", title: "Only Some days of week" },
+  { id: "Repeat", title: "Repeating" },
+];
 
 const HabitDescribeFinal = () => {
   return (
@@ -8,16 +13,28 @@ const HabitDescribeFinal = () => {
           On which days you want to be successful ?
         </h1>
         <form action="" className="overflow-hidden">
-          <input
-            placeholder="Habit Name"
-            type="text"
-            className=" w-3/4  block rounded-sm mr-8 ml-8 mt-8 border-t-4  border-pink-600 p-4 shadow-lg sm:p-6 lg:p-8"
-          />
-          <input
-            placeholder="Habit Description"
-            type="text"
-            className=" w-3/4  rounded-sm mr-8 ml-8 mt-8 border-t-4  border-pink-600 p-4 shadow-lg sm:p-6 lg:p-8"
-          />
+          <fieldset className="mt-4">
+            <legend className="sr-only">Notification method</legend>
+            <div className="space-y-4">
+              {SuccessDays.map((SuccessDay) => (
+                <div key={SuccessDay.id} className="flex items-center">
+                  <input
+                    id={SuccessDay.id}
+                    name="notification-method"
+                    type="radio"
+                    defaultChecked={SuccessDay.id === "email"}
+                    className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                  />
+                  <label
+                    htmlFor={SuccessDay.id}
+                    className="ml-3 block text-sm font-medium text-gray-700"
+                  >
+                    {SuccessDay.title}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </fieldset>
         </form>
       </div>
       <div className=" mt-8 relative p-6 flex-auto">
