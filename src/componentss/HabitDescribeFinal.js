@@ -35,6 +35,9 @@ const HabitDescribeFinal = () => {
               ))}
             </div>
           </fieldset>
+          <h1 className="text-lg  mt-4 ml-8">
+            Would you like to set a target for this habit ?
+          </h1>
         </form>
       </div>
       <div className=" mt-8 relative p-6 flex-auto">
