@@ -15,7 +15,7 @@ const HabitDescribeFinal = () => {
         <form action="" className="overflow-hidden">
           <fieldset className="mt-4">
             <legend className="sr-only">Notification method</legend>
-            <div className="space-y-4">
+            <div className="space-y-4 ml-8">
               {SuccessDays.map((SuccessDay) => (
                 <div key={SuccessDay.id} className="flex items-center">
                   <input
@@ -41,7 +41,7 @@ const HabitDescribeFinal = () => {
         </form>
       </div>
       <div className=" mt-8 relative p-6 flex-auto">
-        <p className="my-4 text-slate-500 text-lg leading-relaxed">
+        <p className="my-8 text-slate-500 text-lg leading-relaxed">
           I always felt like I could do anything. That’s the main thing people
           are controlled by! Thoughts- their perception of themselves! They're
           slowed down by their perception of themselves. If you're taught you
