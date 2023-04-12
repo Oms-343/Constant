@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Stepper.css";
-import { useState } from "react";
-
+import { TiTick } from "react-icons/ti";
 const Stepper = () => {
-  const [complete, setComplete] = useState(false);
+  const steps = [1, 2, 3, 4];
   const [currentStep, setCurrentStep] = useState(1);
-  const steps = [1, 2, 3];
-
+  const [complete, setComplete] = useState(false);
   return (
     <>
       <div className="flex justify-between">
@@ -18,13 +16,12 @@ const Stepper = () => {
             } `}
           >
             <div className="step">
-              {i + 1 < currentStep || complete ? <p>✔</p> : i + 1}
+              {i + 1 < currentStep || complete ? <TiTick size={24} /> : i + 1}
             </div>
             <p className="text-gray-500">{step}</p>
           </div>
         ))}
       </div>
-
       {!complete && (
         <button
           className="btn"
