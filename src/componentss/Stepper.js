@@ -1,23 +1,6 @@
 import React, { useState } from "react";
 
-const steps = [
-  {
-    label: "Address",
-    step: 1,
-  },
-  {
-    label: "Shipping",
-    step: 2,
-  },
-  {
-    label: "Payment",
-    step: 3,
-  },
-  {
-    label: "Summary",
-    step: 4,
-  },
-];
+const steps = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const Stepper = () => {
   const [activeStep, setActiveStep] = useState(1);
@@ -45,7 +28,7 @@ const Stepper = () => {
           className="absolute bg-purple-800 h-1 transition-all duration-400 ease-out top-1/2 transform -translate-y-1/2 left-0"
           style={{ width }}
         />
-        {steps.map(({ step }) => (
+        {steps.map((step) => (
           <div key={step} className="relative">
             <div
               className={`w-10 h-10 rounded-full bg-white border-3 border-solid flex justify-center items-center transition-all duration-400 ease-out ${
