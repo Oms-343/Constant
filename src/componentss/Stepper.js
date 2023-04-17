@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const steps = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const steps = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 const Stepper = () => {
   const [activeStep, setActiveStep] = useState(1);
@@ -19,15 +19,13 @@ const Stepper = () => {
 
   return (
     <div className="w-full max-w-3xl mx-auto px-4">
-      <div className="flex justify-between mt-14 relative">
-        <div
-          className="absolute bg-pink-200 h-1 w-full top-1/2 transform -translate-y-1/2 left-0"
-          style={{ zIndex: -1 }}
-        />
-        <div
-          className="absolute bg-purple-800 h-1 transition-all duration-400 ease-out top-1/2 transform -translate-y-1/2 left-0"
-          style={{ width }}
-        />
+      <div
+        className="grid grid-cols-7 grid-rows-3 gap-4"
+        style={{
+          gridTemplateColumns: "repeat(7, 1fr)",
+          gridTemplateRows: "repeat(3, 1fr)",
+        }}
+      >
         {steps.map((step) => (
           <div key={step} className="relative">
             <div
