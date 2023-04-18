@@ -76,8 +76,7 @@ const Signupform = () => {
         </h1>
 
         <p class="mx-auto mt-4 max-w-md text-center text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
-          sunt dolores deleniti inventore quaerat mollitia?
+          Welcome to Constant. A web app to track your habits
         </p>
 
         <form
