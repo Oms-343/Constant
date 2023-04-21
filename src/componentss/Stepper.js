@@ -21,7 +21,7 @@ const Stepper = () => {
   const width = `${(100 / (totalSteps - 1)) * (activeStep - 1)}%`;
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4 bg-red-500">
+    <div className="w-full max-w-3xl mx-auto px-4 ">
       <div
         className="grid grid-cols-7 grid-rows-3 gap-4
 
@@ -30,7 +30,7 @@ const Stepper = () => {
         {steps.map((step) => (
           <div key={step} className="relative">
             <div
-              className={`    w-10 h-10 rounded-full bg-white border-3 border-solid flex justify-center items-center transition-all duration-400 ease-out ${
+              className={`    w-10 h-10 rounded-full bg-white border-2    flex justify-center items-center transition-all duration-400 ease-out ${
                 activeStep >= step ? "border-purple-800" : "border-pink-200"
               }`}
             >
