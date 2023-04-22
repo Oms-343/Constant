@@ -18,21 +18,15 @@ const Stepper = () => {
 
   const totalSteps = steps.length;
 
-  const width = `${(100 / (totalSteps - 1)) * (activeStep - 1)}%`;
-
   return (
     <div className="w-full max-w-3xl mx-auto px-4 ">
-      <div
-        className="grid grid-cols-7 grid-rows-3 gap-4
-
-      "
-      >
+      <div className="grid grid-cols-7 grid-rows-3 gap-4  relative ">
         {steps.map((step) => (
           <div key={step} className="relative">
             <div
-              className={`    w-10 h-10 rounded-full bg-white border-2    flex justify-center items-center transition-all duration-400 ease-out ${
-                activeStep >= step ? "border-purple-800" : "border-pink-200"
-              }`}
+              className={`    w-10 h-10 rounded-full  border-2    flex justify-center items-center transition-all duration-400 ease-out ${
+                activeStep > step ? "border-purple-800" : "border-pink-200"
+              } ${activeStep > step ? "bg-green-600" : "bg-white"}`}
             >
               {activeStep > step ? (
                 <span className="text-purple-800 font-bold text-lg leading-none transform -scale-x-100 rotate-45">
@@ -60,9 +54,9 @@ const Stepper = () => {
         </button>
         <button
           className={`border border-solid rounded-md bg-purple-800 text-white font-medium py-2 px-6 transition-all duration-200 ease-out
-            ${activeStep === totalSteps && "cursor-not-allowed opacity-50"}`}
+          ${activeStep > totalSteps && "cursor-not-allowed opacity-50"}`}
           onClick={nextStep}
-          disabled={activeStep === totalSteps}
+          disabled={activeStep > totalSteps}
         >
           Next
         </button>
