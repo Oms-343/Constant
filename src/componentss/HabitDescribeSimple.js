@@ -1,6 +1,6 @@
 import React from "react";
 
-const HabitDescribe = () => {
+const HabitDescribeSimple = () => {
   return (
     <>
       <div className="">
@@ -30,4 +30,4 @@ const HabitDescribe = () => {
   );
 };
 
-export default HabitDescribe;
+export default HabitDescribeSimple;

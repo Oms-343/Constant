@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { habits } from "./data";
 import ModelContent from "./ModelContent";
-import HabitDescribe from "./HabitDescribe";
+import HabitDescribe from "./HabitDescribeSimple";
 import HabitDetails from "./HabitDetails";
 import HabitDescribeFinal from "./HabitDescribeFinal";
 
