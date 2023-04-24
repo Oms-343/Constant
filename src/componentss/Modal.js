@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { habits } from "./data";
 import ModelContent from "./ModelContent";
-import HabitDescribe from "./HabitDescribeSimple";
+
 import HabitDetails from "./HabitDetails";
 import HabitDescribeFinal from "./HabitDescribeFinal";
+import HabitDescribe from "./HabitDescribe";
+import HabitDescribeMulti from "./HabitDescribeMulti";
 
 export default function Modal() {
   const location = useLocation();
@@ -82,6 +84,9 @@ export default function Modal() {
             )) ||
               (loc === "/modal/habit-details" && <HabitDetails />) ||
               (loc === "/modal/habit-describe" && <HabitDescribe />) ||
+              (loc === "/modal/habit-describe-multi" && (
+                <HabitDescribeMulti />
+              )) ||
               (loc === "/modal/habit-describe-final" && <HabitDescribeFinal />)}
 
             {/*footer*/}
